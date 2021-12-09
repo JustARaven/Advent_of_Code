@@ -21,9 +21,9 @@ fun main() {
 
         linea = f_ent.readLine()
     }
+
     gamma = verificar(listaNumeros)
     val gammaArray: CharArray = gamma.toCharArray()
-
     for (i in gammaArray.indices){
         if (gammaArray[i] == '0'){
             epsilon += "1"
