@@ -8,12 +8,12 @@ fun main() {
     val gamma: String
     var epsilon = ""
 
+    var linea = f_ent.readLine()
     val listaNumeros = mutableListOf<Num>()
-    for (i in 0..11) {
+    for (i in linea.indices) {
         listaNumeros.add(Num())
     }
 
-    var linea = f_ent.readLine()
     while (linea != null){
         val charArray: CharArray = linea.toCharArray()
 
