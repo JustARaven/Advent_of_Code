@@ -17,11 +17,11 @@ fun main() {
     while (linea != null){
         val charArray: CharArray = linea.toCharArray()
 
-        comprobarTodo(charArray, listaNumeros)
+        comprobar(charArray, listaNumeros)
 
         linea = f_ent.readLine()
     }
-    gamma = verificarTodo(listaNumeros)
+    gamma = verificar(listaNumeros)
     val gammaArray: CharArray = gamma.toCharArray()
 
     for (i in gammaArray.indices){
@@ -38,27 +38,19 @@ fun main() {
     println(resultado)
 
 }
-fun comprobar(char: Char, num: Num){
-    if (char == '0'){
-        num.decrementar()
-    } else num.incrementar()
-}
-fun comprobarTodo(charArray: CharArray, nums: MutableList<Num>){
+fun comprobar(charArray: CharArray, nums: MutableList<Num>){
     for (i in charArray.indices){
-        comprobar(charArray[i], nums[i])
+        if (charArray[i] == '0'){
+            nums[i].decrementar()
+        } else nums[i].incrementar()
     }
 }
-fun verificar(num: Int): String{
-    var resultado = ""
-    if (num > 0){
-        resultado += "1"
-    } else resultado += "0"
-    return resultado
-}
-fun verificarTodo(nums: MutableList<Num>): String{
+fun verificar(nums: MutableList<Num>): String{
     var gamma = ""
     for (i in 0 until nums.size){
-        gamma += verificar(nums[i].obtener())
+        if (nums[i].obtener() > 0){
+            gamma += "1"
+        } else gamma += "0"
     }
     return gamma
 }
